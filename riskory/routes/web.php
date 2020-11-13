@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin.auth.login');
-});
+Auth::routes();
+
+// Route::get('/admin/login',)
 
 
-
+Route::get('/user','UserController@index')->name('user');
+Route::get('/admin','AdminController@index')->name('admin');
+Route::get('/admin/profile','AdminProfileController@index')->name('adminProfile');
