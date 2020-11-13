@@ -16,9 +16,9 @@ class AdminProfileController extends Controller
 
     public function index()
     {
-        // $user = User::where('id',Auth::id())->first();
+        $user = User::where('id',Auth::id())->first();
         // //$user = User::with('getCountry')->get();
-        // dd($user);
+        dd($user->getCountry());
         //return view('admin.profileView',compact('user'));
     }
 }
