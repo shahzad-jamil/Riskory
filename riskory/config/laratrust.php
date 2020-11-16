@@ -289,7 +289,7 @@ return [
         | These middleware will get attached onto each Laratrust panel route.
         |
         */
-        'middleware' => ['web'],
+        'middleware' => ['role:superadministrator'],
 
         /*
         |--------------------------------------------------------------------------
@@ -312,13 +312,13 @@ return [
         */
         'roles_restrictions' => [
             // The user won't be able to remove roles already assigned to users.
-            'not_removable' => [],
+            'not_removable' => ['user'],
 
             // The user won't be able to edit the role and the permissions assigned.
-            'not_editable' => [],
+            'not_editable' => ['user'],
 
             // The user won't be able to delete the role.
-            'not_deletable' => [],
+            'not_deletable' => ['user'],
         ],
     ]
 ];

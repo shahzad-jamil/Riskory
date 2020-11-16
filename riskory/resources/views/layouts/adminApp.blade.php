@@ -14,9 +14,11 @@
   <!-- Custom fonts for this template-->
 <link href="{{ asset('adminAssets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="{{ asset('adminAssets/vendor/jquery/jquery.min.js') }}"></script>
   <!-- Custom styles for this template-->
   <link href="{{ asset('adminAssets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 </head>
 
@@ -88,7 +90,13 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset('adminAssets/vendor/jquery/jquery.min.js') }}"></script>
+  <script>
+  @if(session()->get('success'))
+  toastr.success("{{session()->get('success')}}");
+  @elseif(session()->get('error'))
+  toastr.error("{{session()->get('error')}}");
+  @endif
+</script>
   <script src="{{ asset('adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
@@ -99,6 +107,8 @@
 
   <!-- Page level plugins -->
   @yield('chartApis')
+
+  @yield('scripts')
 
 </body>
 

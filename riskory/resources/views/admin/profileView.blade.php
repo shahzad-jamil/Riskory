@@ -1,31 +1,53 @@
 @extends('layouts.adminApp')
 
 @section('pageHeading')
-Profile
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active">Profile</li>
+    </ol>
+  </nav>
 @endsection
 @section('content')
     <div class="row d-flex justify-content-center">
        <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-            </span> Admin Profile View<span> <button class="btn btn-primary float-right btn-sm">Edit Profile</button>
+            </span> Account Settings<span> <a class="btn btn-outline-primary float-right btn-sm" href="{{ URL::route('editAdminAccount')}}">Edit account <i class="fas fa-cog"></i></a>
             </div>
             <div class="card-body">
                 <ul class="list-group">
                 <li class="list-group-item"><strong>Username: </strong> {{$user->name}}</li>
                     <li class="list-group-item"><strong>Email: </strong> {{$user->email}}</li>
-                    <li class="list-group-item"><strong>Username: {{$user->name}}</strong></li>
-                    <li class="list-group-item"><strong>Firstname: {{$user->fname}}</strong></li>
-                    <li class="list-group-item"><strong>Lastname: {{$user->lname}}</strong></li>
-                    <li class="list-group-item"><strong>Joined At: </strong> {{$user->joined_at}}</li>
-                    <li class="list-group-item"><strong>DOB: </strong> {{$user->dob}}</li>
-                <li class="list-group-item"><strong>Country: </strong> </li>
-                    <li class="list-group-item"><strong>Gender: </strong></li>
+                <li class="list-group-item"><strong>Password: </strong> <a href="{{URL::route('editAdminPassword')}}">Change password</a></li>
+                    
                     
                   </ul>
             </div>
           </div>
        </div>
     </div>
+
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-md-6">
+         <div class="card">
+             <div class="card-header">
+             </span>Profile Settings<span> <a class="btn btn-outline-primary float-right btn-sm" href="{{ URL::route('editAdminProfile')}}">Edit Profile <i class="fas fa-user"></i></a>
+             </div>
+             <div class="card-body">
+                 <ul class="list-group">
+                     <li class="list-group-item"><strong>Username: </strong>{{$user->name}}</li>
+                     <li class="list-group-item"><strong>Firstname: </strong>{{$user->fname}}</li>
+                     <li class="list-group-item"><strong>Lastname: </strong>{{$user->lname}}</li>
+                     <li class="list-group-item"><strong>Joined At: </strong> {{$user->joined_at}}</li>
+                     <li class="list-group-item"><strong>DOB: </strong> {{$user->dob}}</li>
+                 <li class="list-group-item"><strong>Country: </strong> {{$user->country->country}}</li>
+                 <li class="list-group-item"><strong>Gender: </strong>{{$user->gender}}</li>
+                     
+                   </ul>
+             </div>
+           </div>
+        </div>
+     </div>
 @endsection
 

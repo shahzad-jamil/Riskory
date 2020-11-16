@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+
     ];
 
     /**
@@ -43,8 +45,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getCountry(){
+    public function country(){
         return $this->belongsTo('App\Models\Country');
+    }
+
+    public function industries()
+    {
+        return $this->hasMany('App\Models\Industry');
     }
 
     
