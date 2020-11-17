@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Industry;
+use App\Models\Bprocess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IndustryController extends Controller
+class BprocessController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class IndustryController extends Controller
     public function index()
     {
         //
-        $industries = Industry::all();
-        return view('controls.industry.index',compact('industries'));
+        $bprocesses = Bprocess::all();
+        return view('controls.bProcess.index',compact('bprocesses'));
+
     }
 
     /**
@@ -28,10 +29,8 @@ class IndustryController extends Controller
     public function create()
     {
         //
-
-        $industries = Industry::all()->where('status',1);
-        return view('controls.industry.create',compact('industries'));
-       
+        $bprocesses = Bprocess::all()->where('status',1);
+        return view('controls.bProcess.create',compact('bprocesses'));
     }
 
     /**
@@ -43,6 +42,7 @@ class IndustryController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
             'name' => 'required',
             'status' => 'required',
@@ -63,40 +63,42 @@ class IndustryController extends Controller
 
         );
 
-        $ind = Industry::create($data);
-        if($ind){
-            $request->session()->flash('success', 'Industry added successfully');
+        $bp = Bprocess::create($data);
+        if($bp){
+            $request->session()->flash('success', 'Business process added successfully');
 
         }else{
-            $request->session()->flash('error', 'Unable to add industry');
+            $request->session()->flash('error', 'Unable to add business process');
         }
-        return redirect()->route('industry.create');
+        return redirect()->route('bprocess.create');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Industry  $industry
+     * @param  \App\Models\Bprocess  $bprocess
      * @return \Illuminate\Http\Response
      */
-    public function show(Industry $industry)
+    public function show(Bprocess $bprocess)
     {
         //
 
-        return view('controls.industry.show',compact('industry'));
+        return view('controls.bProcess.show',compact('bprocess'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Industry  $industry
+     * @param  \App\Models\Bprocess  $bprocess
      * @return \Illuminate\Http\Response
      */
-    public function edit(Industry $industry)
+    public function edit(Bprocess $bprocess)
     {
         //
-        $industries = Industry::all()->where('status',1);
-        return view('controls.industry.update',compact('industries','industry'));
+
+        $bprocesses = Bprocess::all()->where('status',1);
+        return view('controls.bProcess.update',compact('bprocesses','bprocess'));
 
     }
 
@@ -104,10 +106,10 @@ class IndustryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Industry  $industry
+     * @param  \App\Models\Bprocess  $bprocess
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Industry $industry)
+    public function update(Request $request, Bprocess $bprocess)
     {
         //
         $request->validate([
@@ -124,36 +126,34 @@ class IndustryController extends Controller
         $request->merge(['parent_id',$parent_id]);
         $request->merge(['created_by',Auth::id()]);
         
-        $ind = $industry->update($request->all());
-        if($ind){
-            $request->session()->flash('success', 'Industry Updated successfully');
+        $bp = $bprocess->update($request->all());
+        if($bp){
+            $request->session()->flash('success', 'Business process Updated successfully');
 
         }else{
-            $request->session()->flash('error', 'Unable to update industry');
+            $request->session()->flash('error', 'Unable to update business process');
         }
-        return redirect()->route('industry.index');
-
+        return redirect()->route('bprocess.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Industry  $industry
+     * @param  \App\Models\Bprocess  $bprocess
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Industry $industry)
+    public function destroy(Bprocess $bprocess)
     {
         //
 
-        $ind = $industry->delete();
+        $bp = $bprocess->delete();
 
-        if($ind){
-            session()->flash('success', 'Industry Deleted successfully');
+        if($bp){
+            session()->flash('success', 'Business process Deleted successfully');
 
         }else{
-            session()->flash('error', 'Unable to delete industry');
+            session()->flash('error', 'Unable to delete business process');
         }
-        return redirect()->route('industry.index');
-
+        return redirect()->route('bprocess.index');
     }
 }

@@ -19,6 +19,7 @@
   <link href="{{ asset('adminAssets/css/sb-admin-2.min.css') }}" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 
 </head>
 
@@ -104,6 +105,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('adminAssets/js/sb-admin-2.min.js') }}"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level plugins -->
   @yield('chartApis')

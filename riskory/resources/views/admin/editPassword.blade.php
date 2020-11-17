@@ -12,7 +12,7 @@
 @section('content')
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-     <div class="card">
+     <div class="card shadow">
          <div class="card-header text-center">
          <span class="text-center">Update admin password</span>
          </div>
@@ -26,25 +26,25 @@
                 <div class="input-group mb-3">
                     
                     
-                  <input type="password" class="form-control" id="old_password" name="old_password" required>
+                  <input type="password" class="form-control shadow-sm" id="old_password" name="old_password" required>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="oldPasswordView" onclick="showPassword('old_password')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-outline-primary shadow-sm" type="button" id="oldPasswordView" onclick="showPassword('old_password')"><i class="fas fa-eye"></i></button>
                   </div>
                 </div>
                 <label for="new_password">New password</label>
                 <div class="input-group mb-3">
                    
-                  <input type="password" class="form-control" id="new_password" name="new_password" required oninput="Validate()">
+                  <input type="password" class="form-control shadow-sm" id="new_password" name="new_password" required oninput="Validate()">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="newPasswordView" onclick="showPassword('new_password')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-outline-primary shadow-sm" type="button" id="newPasswordView" onclick="showPassword('new_password')"><i class="fas fa-eye"></i></button>
                   </div>
                 </div>
                 <label for="confirm_password">Confirm</label>
                 <div class="input-group mb-3">
                     
-                  <input type="password" class="form-control " id="confirm_password" name="confirm_password" required oninput="Validate()">
+                  <input type="password" class="form-control shadow-sm" id="confirm_password" name="confirm_password" required oninput="Validate()">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="confirmPasswordView" onclick="showPassword('confirm_password')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-outline-primary shadow-sm" type="button" id="confirmPasswordView" onclick="showPassword('confirm_password')"><i class="fas fa-eye"></i></button>
                   </div>
                 </div>
                 

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Industry extends Model
+class Bprocess extends Model
 {
     use HasFactory;
 
-    protected $table = 'industries';
+    protected $table = 'bprocesses';
     public $timestamps = true;
 
     protected $fillable = [
@@ -20,18 +20,18 @@ class Industry extends Model
         'parent_id',
     ];
 
+
     public function user(){
         return $this->belongsTo('App\Models\User','created_by');
     }
 
     public function children()
-{
-    return $this->hasMany('App\Models\Industry','parent_id');
-}
+    {
+        return $this->hasMany('App\Models\Bprocess','parent_id');
+    }
 
-public function parent()
-{
-    return $this->belongsTo('App\Models\Industry','parent_id');
-}
-
+    public function parent()
+    {
+        return $this->belongsTo('App\Models\Bprocess','parent_id');
+    }
 }
