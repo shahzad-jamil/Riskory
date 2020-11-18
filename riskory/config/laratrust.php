@@ -289,7 +289,7 @@ return [
         | These middleware will get attached onto each Laratrust panel route.
         |
         */
-        'middleware' => ['role:superadministrator'],
+        'middleware' => ['web'],
 
         /*
         |--------------------------------------------------------------------------
@@ -299,7 +299,7 @@ return [
         | Enable/Disable the permissions assignment to the users.
         |
         */
-        'assign_permissions_to_user' => true,
+        'assign_permissions_to_user' => false,
 
         /*
         |--------------------------------------------------------------------------

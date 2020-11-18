@@ -37,5 +37,11 @@ Route::post('/admin/account/password/update','AdminProfileController@updatePassw
 //Industries Routes
 Route::resource('admin/industry', 'IndustryController');
 
-//
+//Business processes routes
 Route::resource('admin/bprocess','BprocessController');
+
+//Business process routes
+Route::resource('admin/bframework','BframeworkController');
+
+//Category routes
+Route::resource('admin/category','CategoryController');
