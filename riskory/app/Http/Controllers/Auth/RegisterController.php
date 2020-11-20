@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 
@@ -19,7 +22,7 @@ class RegisterController extends Controller
     |--------------------------------------------------------------------------
     |
     | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
+    | validation and creation. By default this controller uses a  to
     | provide this functionality without requiring any additional code.
     |
     */
@@ -31,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo ='/user';
+    protected $redirectTo ='/login';
 
     /**
      * Create a new controller instance.
@@ -74,5 +77,16 @@ class RegisterController extends Controller
 
         $user->attachRole('user');
         return $user;
+    }
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }

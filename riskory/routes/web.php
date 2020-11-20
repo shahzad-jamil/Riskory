@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('user.homepage');
+})->name('homePage');
 
 Auth::routes();
 
@@ -45,3 +45,12 @@ Route::resource('admin/bframework','BframeworkController');
 
 //Category routes
 Route::resource('admin/category','CategoryController');
+
+//Auth routes
+Route::get('/admin/login','Auth\LoginController@showLoginForm')->name('adminLogin');
+Route::get('/register','VisitorController@signup')->name('userRegister');
+
+
+//Visitor Routes
+Route::get('/about-us','VisitorController@about')->name('aboutUs');
+Route::get('/contact','VisitorController@contact')->name('contactUs');

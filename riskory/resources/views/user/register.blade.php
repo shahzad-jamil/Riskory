@@ -1,0 +1,50 @@
+@extends('user.layout.home')
+@section('SiteTitle','Home || Riskory')
+@section('content')
+<main role="main" class="inner cover pb-5 pb-sm-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-6 col-md-6 text-center">
+                <img class="img-80" src="assets/images/Mask-Group-1.svg" width="100%">
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 text-center pb-2 pb-sm-3">
+                <p class="p-style font-18 font-b color-n">Signup With</p>
+                <div class="signup-icon">
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+                <p class="p-style font-18 font-b color-n" style="margin-top: 15px;">Or With</p>
+                <form class="form-style" action="{{ route('register') }}" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" required value="{{ old('name') }}" autocomplete="name" autofocus>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
+                        @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Password" required autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="confirmPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                    <p class="p-style mb-0">BY Sign Up You Agree to our</p>
+                    <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> And <a class="color-g text-underl" href="#">Privacy Policy</a></p>
+                    <input type="submit" id="submit" name="signup" value="Sign Up" class="btn-submit">
+                    <p class="p-style font-20 mt-3">Already Have Account ! <a href="login.html" class="color-b">LOGIN HERE</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+@endsection
