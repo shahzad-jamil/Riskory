@@ -2,9 +2,11 @@
 <body class="bg-white">
 	<div class="cover-container d-flex w-100 flex-column">
 @include('user.inc.navbarmain')
+
 @yield('content')
-		
+
 @include('user.inc.contentfooter')
+
 	</div>
 
 	<!-- jQuery, Popper.js, and Bootstrap JS -->

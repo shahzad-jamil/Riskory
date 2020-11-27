@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -46,11 +47,40 @@ Route::resource('admin/bframework','BframeworkController');
 //Category routes
 Route::resource('admin/category','CategoryController');
 
+//Content controller
+Route::resource('admin/content','ContentController');
+
+//Contributor routes
+Route::get('admin/contributors','AdminController@allContributors')->name('contributor.index');
+Route::get('admin/contributor/{id}','AdminController@viewContributor')->name('contributor.view');
+
+
+
 //Auth routes
 Route::get('/admin/login','Auth\LoginController@showLoginForm')->name('adminLogin');
 Route::get('/register','VisitorController@signup')->name('userRegister');
-
+Route::post('/register','VisitorController@register')->name('userRegister');
+Route::get('/login','VisitorController@loginForm')->name('userLogin');
 
 //Visitor Routes
 Route::get('/about-us','VisitorController@about')->name('aboutUs');
 Route::get('/contact','VisitorController@contact')->name('contactUs');
+
+//Sociallite logins
+
+Route::get('/login/facebook','Auth\LoginController@facebookRedirectToProvider')->name('facebookLogin');
+Route::get('/login/facebook/callback','Auth\LoginController@facebookProviderCallback')->name('facebookCallback');
+
+Route::get('/login/google','Auth\LoginController@googleRedirectToProvider')->name('googleLogin');
+Route::get('/login/google/callback','Auth\LoginController@googleProviderCallback');
+
+
+//Contributor side User
+
+
+
+//Route::get('/dashboard/view','UserController@dashboard')->name('dashboard');
+
+Route::get('/more/{req}','UserController@seeMore')->name('seeMore');
+
+Route::get('/user/profile','UserController@userProfile')->name('userProfile');

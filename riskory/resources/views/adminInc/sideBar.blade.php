@@ -103,11 +103,53 @@
           <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-            <a class="collapse-item" href="#">Add roles</a>
-              <a class="collapse-item" href="#">Assign permissions</a>
+              <a  href="{{ route('laratrust.roles-assignment.index' ) }}" class="collapse-item">Roles & Permission <br> Assignment</a>
+            <a class="collapse-item" href="{{URL::route('laratrust.roles.index')}}">Roles</a>
+            <a class="collapse-item" href="{{URL::route('laratrust.permissions.index')}}">Permissions</a>
             </div>
           </div>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContributors" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-user-tag"></i>
+            <span>Contributors</span>
+          </a>
+          <div id="collapseContributors" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+            <a  href="{{route('contributor.index')}}" class="collapse-item">All Contibutors</a>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+  
+        <!-- Heading -->
+        <div class="sidebar-heading">
+         Content Management
+        </div>
+
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContent" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-file"></i>
+            <span>Page Content Manage</span>
+          </a>
+          <div id="collapseContent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+              
+            <a class="collapse-item" href="{{route('content.index')}}">All Contents</a>
+             
+            </div>
+          </div>
+        </li>
+
+
   
   
        

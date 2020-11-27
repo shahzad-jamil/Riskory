@@ -1,8 +1,8 @@
 @section('navbarsection')
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-sm-5 px-2 pt-sm-2 pt-2">
-      <a class="navbar-brand" href="index.html">
-          <img class="brand-logo" src="assets/images/logo.png">
+    <a class="navbar-brand" href="{{URL::route('homePage')}}">
+      <img class="brand-logo" src="{{asset('assets/images/logo.png')}}">
           <p class="tagline-top">Every Risk Has A Story</p>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

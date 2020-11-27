@@ -4,7 +4,6 @@
       <a class="active" href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
       <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
     <div class="footer-button">
         <button class="footer-btn" onclick="parent.location='risk-control-by-category.html'">Browse Risk Controls <i class="fas fa-arrow-right"></i></i></button>

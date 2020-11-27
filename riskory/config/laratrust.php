@@ -194,7 +194,7 @@ return [
              * If the message content is empty it won't be added to the redirection.
              */
             'redirect' => [
-                'url' => '/admin',
+                'url' => '/vn/riskory/admin',
                 'message' => [
                     'key' => 'error',
                     'content' => ''
@@ -279,7 +279,7 @@ return [
         | The route where the go back link should point
         |
         */
-        'go_back_route' => '/admin',
+        'go_back_route' => '/vn/riskory/admin',
 
         /*
         |--------------------------------------------------------------------------

@@ -1,5 +1,5 @@
-@extends('user.layout.home')
-@section('SiteTitle','Home || Riskory')
+@extends('user.layout.visitor')
+@section('SiteTitle','Register || Riskory')
 @section('content')
 <main role="main" class="inner cover pb-5 pb-sm-5">
     <div class="container">
@@ -12,10 +12,11 @@
                 <div class="signup-icon">
                   <a href="#"><i class="fab fa-twitter"></i></a>
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-google"></i></a>
+                  <a href="{{route('googleLogin')}}"><i class="fab fa-google"></i></a>
                 </div>
                 <p class="p-style font-18 font-b color-n" style="margin-top: 15px;">Or With</p>
-                <form class="form-style" action="{{ route('register') }}" method="POST">
+            <form class="form-style" action="{{route('userRegister')}}" method="POST">
+                @csrf
                     <div class="form-group">
                         <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" required value="{{ old('name') }}" autocomplete="name" autofocus>
                         @error('name')
@@ -34,6 +35,11 @@
                     </div>
                     <div class="form-group">
                         <input type="password" id="password" name="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Password" required autocomplete="new-password">
+                        @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     <div class="form-group">
                         <input type="password" id="confirmPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
@@ -41,7 +47,7 @@
                     <p class="p-style mb-0">BY Sign Up You Agree to our</p>
                     <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> And <a class="color-g text-underl" href="#">Privacy Policy</a></p>
                     <input type="submit" id="submit" name="signup" value="Sign Up" class="btn-submit">
-                    <p class="p-style font-20 mt-3">Already Have Account ! <a href="login.html" class="color-b">LOGIN HERE</a></p>
+                <p class="p-style font-20 mt-3">Already Have Account ! <a href="{{route('userLogin')}}" class="color-b">LOGIN HERE</a></p>
                 </form>
             </div>
         </div>

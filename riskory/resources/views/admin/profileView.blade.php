@@ -13,7 +13,7 @@
        <div class="col-md-6">
         <div class="card shadow">
             <div class="card-header">
-            </span> Account Settings<span> <a class="btn btn-outline-primary float-right btn-sm shadow-sm" href="{{ URL::route('editAdminAccount')}}">Edit account <i class="fas fa-cog "></i></a>
+            </span> Account Settings<span> <a readonly class="btn btn-outline-primary float-right btn-sm shadow-sm" >Edit account <i class="fas fa-cog "></i></a>
             </div>
             <div class="card-body">
                 <ul class="list-group">

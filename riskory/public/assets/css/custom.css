@@ -81,6 +81,13 @@ src: local('Georgia Bold Italic'), url('../fonts/georgiaz.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
+
+.p-tab{
+    width: 100%;
+    display: inline-block;
+    
+}
+
 p>a:hover {
     color: #E90000 !important;
 }

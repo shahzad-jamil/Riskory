@@ -1,14 +1,14 @@
 @section('contentfooter')
 
-<footer class="bg-dgray pl-5 pr-5 pt-5" style="bottom: 0 !important; position: absolute; width: 100%;">
+<footer class="bg-dgray pl-5 pr-5 pt-5" >
     <div class="row">
         <div class="col-12 col-sm-6 col-lg-3 text-center text-sm-left">
             <a class="navbar-brand" href="index.html">
-                  <img class="brand-logo" src="assets/images/logo.png">
+            <img class="brand-logo" src="{{asset('assets/images/logo.png')}}">
               </a>
               <div class="footer-icon">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+               
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>

@@ -3,7 +3,7 @@
 @section('pageHeading')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="{{URL::route('admin')}}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{route('category.index')}}">Categories</a></li>
       <li class="breadcrumb-item active" aria-current="page">View</li>
     </ol>
@@ -21,7 +21,7 @@
                 <h1 class="lead"><span class="badge badge-primary">Name: </span> {{$category->name}}</h1>
             </div>
 
-            <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
+            <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">a
                 <h1 class="lead"><span class="badge badge-primary">Note: </span> {{$category->note}}</h1>
             </div>
 
