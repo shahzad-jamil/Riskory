@@ -14,7 +14,7 @@
           <a class="nav-link nav-link-style" href="{{route('homePage')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-style" href="risk-control-by-category.html">Categories</a>
+            <a class="nav-link nav-link-style" href="#">Categories</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-style" href="http://skiller.com/">Jobs</a>

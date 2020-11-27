@@ -15,7 +15,7 @@
             <a class="nav-link nav-link-style" href="{{route('homePage')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-style" href="risk-control-by-category.html">Risk Category</a>
+            <a class="nav-link nav-link-style" href="#">Risk Category</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-style" href="{{route('aboutUs')}}">About Us</a>
