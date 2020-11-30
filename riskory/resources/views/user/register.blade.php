@@ -39,11 +39,30 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                        @enderror
                     </div>
+                    
                     <div class="form-group">
                         <input type="password" id="confirmPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
                     </div>
+                    <div class="form-group mt-4 mb-4">
+                        <div class="captcha">
+                            <span>{!! captcha_img() !!}</span>
+                            <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                &#x21bb;
+                            </button>
+                        </div>
+                    </div>
+        
+                    <div class="form-group mb-4">
+                        <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" placeholder="Enter Captcha" name="captcha" required>
+                        @error('captcha')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
                     <p class="p-style mb-0">BY Sign Up You Agree to our</p>
                     <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> And <a class="color-g text-underl" href="#">Privacy Policy</a></p>
                     <input type="submit" id="submit" name="signup" value="Sign Up" class="btn-submit">
@@ -53,4 +72,18 @@
         </div>
     </div>
 </main>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+
+</script>
 @endsection

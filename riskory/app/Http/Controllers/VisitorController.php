@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Content;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -42,6 +43,7 @@ class VisitorController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'captcha' => 'required|captcha',
         ]);
         
         $user =  User::create([
@@ -69,6 +71,34 @@ class VisitorController extends Controller
             return view('user.login');
         }
         
+    }
+
+    public function submission(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+            'captcha' => 'required|captcha'
+        ]);
+
+       $data = array(
+        'name'=>$request->input('name'),
+        'email'=>$request->input('email'),
+        'message'=>$request->input('message'),
+       );
+       $con = Contact::create($data);
+       if($con){
+        $request->session()->flash('success', 'Submitted successfully');
+
+        }else{
+            $request->session()->flash('error', 'Unable to submit ! Try again later');
+        }
+        return redirect()->route('contactUs');
+    }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
     }
 
 }

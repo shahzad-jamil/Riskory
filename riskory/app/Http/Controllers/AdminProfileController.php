@@ -100,4 +100,31 @@ class AdminProfileController extends Controller
         
 
     }
+
+    public function editAvatar(){
+        
+        return view('admin.editAvatar');
+    }
+
+    public function uploadAvatar(Request $request){
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+        ]);
+    
+        $imageName = time().Auth::user()->name.'.'.$request->avatar->extension();
+     
+        $request->avatar->move(public_path('adminAvat'), $imageName);
+        $contents = file_get_contents(asset('public/adminAvat/'.$imageName));
+        //$request->avatar->move(public_path('userAvat'), $imageName);
+        $file = 'public/userAvat/' .$imageName;
+        file_put_contents($file, $contents);
+        $user = User::find(Auth::user()->id)->update(['avatar'=>$imageName]);
+
+        if($user){
+        $request->session()->flash('success', 'Avatar updated successfully');
+        }else{
+
+        }
+        return redirect()->route('admin.edit.avatar');
+    }
 }

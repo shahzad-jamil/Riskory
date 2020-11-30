@@ -32,7 +32,10 @@
         <div class="col-md-6">
          <div class="card shadow">
              <div class="card-header">
-             </span>Profile Settings<span> <a class="btn btn-outline-primary float-right btn-sm shadow-sm" href="{{ URL::route('editAdminProfile')}}">Edit Profile <i class="fas fa-user"></i></a>
+             </span>Profile Settings<span> 
+             <a href="{{URL::route('admin.edit.avatar')}}" class="btn btn-outline-success btn-sm shadow-sm float-right mx-2">Update avatar <i class="fas fa-user-circle"></i></a>
+               <a class="btn btn-outline-primary float-right btn-sm shadow-sm" href="{{ URL::route('editAdminProfile')}}">Edit Profile <i class="fas fa-user"></i></a>
+              
              </div>
              <div class="card-body">
                  <ul class="list-group">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCountriesTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,23 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('code',30);
-            $table->string('country',191);
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            $table->enum('status',['0','1'])->default('1');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.s
+     * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('contacts');
     }
 }

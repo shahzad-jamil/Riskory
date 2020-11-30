@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Content;
 use Illuminate\Http\Request;
 
@@ -102,4 +103,24 @@ class ContentController extends Controller
     {
         //
     }
+
+    public function contactIndex(){
+        $contact = Contact::all();
+        return view('controls.contact.index',compact('contact'));
+    }
+
+    public function destroyContact(Contact $contact, $id)
+    {
+        //
+        $con = $contact->find($id)->delete();
+
+        if($con){
+            session()->flash('success', 'Submission Deleted successfully');
+
+        }else{
+            session()->flash('error', 'Unable to delete submission');
+        }
+        return redirect()->route('contact.index');
+    }
+
 }

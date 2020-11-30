@@ -16,7 +16,7 @@
         <hr class="sidebar-divider my-0">
   
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+      <li class="nav-item {{Request::is('admin') ? 'active' : ''}}">
         <a class="nav-link" href="{{URL::route('admin')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -31,7 +31,7 @@
         </div>
   
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/industry/*') ? 'active' : ''}} {{Request::is('admin/industry') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-industry"></i>
             <span>Industry</span>
@@ -45,7 +45,7 @@
           </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/bprocess/*') ? 'active' : ''}} {{Request::is('admin/bprocess') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBP" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-sync-alt"></i>
             <span>Business Processes</span>
@@ -59,7 +59,7 @@
           </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/bframework/*') ? 'active' : ''}} {{Request::is('admin/bframework') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBF" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Business Framework</span>
@@ -73,7 +73,7 @@
           </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/category/*') ? 'active' : ''}} {{Request::is('admin/category') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="true" aria-controls="collapseCat">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Categories</span>
@@ -95,7 +95,7 @@
           User Management
         </div>
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/rolemanager/*') ? 'active' : ''}} {{Request::is('admin/rolemanager') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-user-tag"></i>
             <span>Roles & Permissions</span>
@@ -110,7 +110,7 @@
           </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/contributors/*') ? 'active' : ''}} {{Request::is('admin/contributors') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContributors" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-user-tag"></i>
             <span>Contributors</span>
@@ -134,17 +134,26 @@
         </div>
 
 
-        <li class="nav-item">
+        <li class="nav-item {{Request::is('admin/content/*') ? 'active' : ''}} {{Request::is('admin/content') ? 'active' : ''}}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContent" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-file"></i>
             <span>Page Content Manage</span>
           </a>
           <div id="collapseContent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              
-            <a class="collapse-item" href="{{route('content.index')}}">All Contents</a>
-             
+            <a class="collapse-item" href="{{route('content.index')}}">All Contents</a> 
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item {{Request::is('admin/contact/*') ? 'active' : ''}} {{Request::is('admin/contact') ? 'active' : ''}}">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContact" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Contact submissions</span>
+          </a>
+          <div id="collapseContact" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{route('contact.index')}}">All submissions</a> 
             </div>
           </div>
         </li>

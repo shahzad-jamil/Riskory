@@ -33,6 +33,8 @@ Route::get('/admin/account/edit','AdminProfileController@editAccount')->name('ed
 Route::post('/admin/account/update','AdminProfileController@updateAccount')->name('updateAdminAccount');
 Route::get('/admin/account/password/edit','AdminProfileController@editPassword')->name('editAdminPassword');
 Route::post('/admin/account/password/update','AdminProfileController@updatePassword')->name('updateAdminPassword');
+Route::get('/admin/profile/avatar','AdminProfileController@editAvatar')->name('admin.edit.avatar');
+Route::post('/admin/profile/avatar','AdminProfileController@uploadAvatar')->name('admin.upload.avatar');
 
 
 //Industries Routes
@@ -50,6 +52,10 @@ Route::resource('admin/category','CategoryController');
 //Content controller
 Route::resource('admin/content','ContentController');
 
+//Contact COntroller routes
+Route::get('admin/contact','ContentController@contactIndex')->name('contact.index');
+Route::delete('admin/contact/delete/{id}','ContentController@destroyContact')->name('contact.destroy');
+
 //Contributor routes
 Route::get('admin/contributors','AdminController@allContributors')->name('contributor.index');
 Route::get('admin/contributor/{id}','AdminController@viewContributor')->name('contributor.view');
@@ -65,6 +71,9 @@ Route::get('/login','VisitorController@loginForm')->name('userLogin');
 //Visitor Routes
 Route::get('/about-us','VisitorController@about')->name('aboutUs');
 Route::get('/contact','VisitorController@contact')->name('contactUs');
+
+Route::post('/contact/submit', 'VisitorController@submission')->name('submission');
+Route::get('/reload-captcha', 'VisitorController@reloadCaptcha');
 
 //Sociallite logins
 
