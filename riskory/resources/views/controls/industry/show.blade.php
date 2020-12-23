@@ -28,7 +28,7 @@
             <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
                 <h1 class="lead"><span class="badge badge-primary">Status: </span>
                     @if($industry->status==0)
-                    <span class="text-danger">In Active</span>
+                    <span class="text-danger">Inactive</span>
                     @elseif($industry->status==1)
                     <span class="text-success">Active</span>
                     @endif</h1>
@@ -59,6 +59,17 @@
             
                
          </div>
+         <div class="card-footer text-muted d-flex justify-content-center">
+            <form action="{{route('industry.destroy',$industry->id)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  
+               
+             
+            <a href="{{route('industry.edit',$industry->id)}}" class="btn btn-warning btn-sm mx-2" ><i class="fas fa-pen"></i></a>
+            <button class="btn btn-outline-danger btn-sm mx-2" onclick="return confirm('Do you really want to delete this industry?')"><i class="fas fa-trash"></i></button>
+        </form>
+        </div>
        </div>
     </div>
  </div>

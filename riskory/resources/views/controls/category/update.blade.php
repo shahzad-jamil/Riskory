@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="0" @if($category->status==0) selected @endif>In Active</option>
+                        <option value="0" @if($category->status==0) selected @endif>Inactive</option>
                         <option value="1" @if($category->status==1) selected @endif>Active</option>
                     </select>
                 </div>

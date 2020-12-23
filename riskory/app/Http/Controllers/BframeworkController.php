@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BframeworkController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -92,7 +97,7 @@ class BframeworkController extends Controller
     public function edit(Bframework $bframework)
     {
         //
-        $bframeworks = Bframework::all()->where('status',1);
+        $bframeworks = Bframework::all()->where('status',1)->whereNotIn('id',$bframework->id);
         return view('controls.bFramework.update',compact('bframeworks','bframework'));
     }
 
@@ -122,7 +127,7 @@ class BframeworkController extends Controller
         
         $bf = $bframework->update($request->all());
         if($bf){
-            $request->session()->flash('success', 'Business framework Updated successfully');
+            $request->session()->flash('success', 'Business framework updated successfully');
 
         }else{
             $request->session()->flash('error', 'Unable to update business framework');
@@ -142,7 +147,7 @@ class BframeworkController extends Controller
         $bf = $bframework->delete();
 
         if($bf){
-            session()->flash('success', 'Business framework Deleted successfully');
+            session()->flash('success', 'Business framework deleted successfully');
 
         }else{
             session()->flash('error', 'Unable to delete business framework');

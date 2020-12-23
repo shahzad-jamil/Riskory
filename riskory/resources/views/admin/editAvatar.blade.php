@@ -27,11 +27,11 @@
                         @else
                         {{asset('adminAvat/'.Auth::user()->avatar)}}
                         @endif
-                        " alt="" class="rounded-circle img-fluid img-thumbnail" style="max-width: 80px; height:auto;">
+                        " alt="" class="rounded-circle img-thumbnail image-contain-150">
                     </div>
                     
                         <div class="form-group mt-3">
-                            <label for="avatar">Upload Avatar</label>
+                            <label for="avatar">Upload avatar</label>
                           <input type="file" class="form-control-file form-control shadow-sm" id="avatar" name="avatar" required>
                         </div>
                     

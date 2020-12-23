@@ -14,7 +14,7 @@
     <div class="col-md-8 col-sm-12 col-lg-6">
      <div class="card shadow border-left-primary">
          <div class="card-header text-center">
-         <span class="text-center">Business framework View  <i class="fas fa-chart-area text-primary"></i></span>
+         <span class="text-center">Business framework view  <i class="fas fa-chart-area text-primary"></i></span>
          </div>
          <div class="card-body">
             <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
@@ -28,7 +28,7 @@
             <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
                 <h1 class="lead"><span class="badge badge-primary">Status: </span>
                     @if($bframework->status==0)
-                    <span class="text-danger">In Active</span>
+                    <span class="text-danger">Inactive</span>
                     @elseif($bframework->status==1)
                     <span class="text-success">Active</span>
                     @endif</h1>
@@ -59,6 +59,18 @@
             
                
          </div>
+
+         <div class="card-footer text-muted d-flex justify-content-center">
+            <form action="{{route('bframework.destroy',$bframework->id)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  
+               
+             
+            <a href="{{route('bframework.edit',$bframework->id)}}" class="btn btn-warning btn-sm mx-2" ><i class="fas fa-pen"></i></a>
+            <button class="btn btn-outline-danger btn-sm mx-2" onclick="return confirm('Do you really want to delete this business framework?')"><i class="fas fa-trash"></i></button>
+        </form>
+        </div>
        </div>
     </div>
  </div>

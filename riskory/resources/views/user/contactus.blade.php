@@ -7,7 +7,7 @@
            <div class="col-12">
                 <div class="text-center">
                     <h1 class="font-eb color-r">{{$con->heading}}</h1>
-                    <p class="p-style">{{$con->content}}</p>
+                    <p class="p-style">{!!$con->content!!}</p>
                 </div>
            </div>
        </div>
@@ -34,17 +34,17 @@
             
                         <div class="form-group">
                             <label>Name <strong class="text-danger">*</strong></label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
             
                         <div class="form-group">
                             <label>Email <strong class="text-danger">*</strong></label>
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
                         </div>
             
                         <div class="form-group">
                             <label for="message">Message <strong class="text-danger">*</strong></label>
-                            <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="10" class="form-control">{{ old('message') }}</textarea>
                         </div>
             
                         <div class="form-group mt-4 mb-4">

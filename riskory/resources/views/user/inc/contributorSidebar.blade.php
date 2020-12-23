@@ -4,27 +4,28 @@
     <a href="http://skiller.com/"><img src="{{asset('assets/images/logo2.png')}}" class="mb-4"></a>
         <p class="p-style"><a href="http://skiller.com/" class="color-r text-underl">Visit the best employment platform here ..</a></p>
     </div>
-    <div class="pt-3">
-        <div class="list-group">
-            
-        <a href="{{route('userProfile')}}" class="list-group-item list-group-item-action"><i class="fas fa-user"></i>  My Profile</a>
-            <a href="#" data-toggle="modal" data-target="#logoutModal" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i>  Logout</a>
-            
-          </div>
-    </div>
+  
 
     <p class="font-eb font-18 px-3 pt-3"><i class="fas fa-tags fa-rotate-90"></i>&nbsp;&nbsp;&nbsp; Most Opened Tags</p>
     <div class="row pl-2">
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Some Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Some Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Tag Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1">Some Name <i class="fas fa-caret-down"></i></button>
-        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1 text-underl">More ..</button>
+        @php
+        $tags = App\Models\Tag::orderByUniqueViews()->limit(5)->get() 
+
+        @endphp
+        @foreach($tags as $tg)
+        <div class="btn-group">
+        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1" type="button" id="dropdownMenuButton{{$tg->id}}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$tg->name}} <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{$tg->id}}">
+            <a class="dropdown-item" href="javascript:void(0)"><span class="badge badge-pill badge-secondary">Views ({{views($tg)->count()}})</span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0)"><span class="badge badge-pill badge-secondary">Followers ({{$tg->followers->count()}})</span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{route('byTag',['tag'=>$tg])}}">Visit</a>
+          </div>
+        </div>
+        @endforeach
+        
+        <button class="bg-lgray border-0 color-b box-shadow py-2 px-3 font-12 mx-1 my-1 text-underl" onclick="parent.location='{{route('seeMore','tags')}}'">More ..</button>
     </div>
     <p class="font-eb font-18 px-3 pt-3"><i class="fas fa-tags fa-rotate-90"></i>&nbsp;&nbsp;&nbsp; People To Follow</p>
     <ul class="pl-2">

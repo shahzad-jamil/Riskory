@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BprocessController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -97,7 +102,7 @@ class BprocessController extends Controller
     {
         //
 
-        $bprocesses = Bprocess::all()->where('status',1);
+        $bprocesses = Bprocess::all()->where('status',1)->whereNotIn('id',$bprocess->id);
         return view('controls.bProcess.update',compact('bprocesses','bprocess'));
 
     }
@@ -128,7 +133,7 @@ class BprocessController extends Controller
         
         $bp = $bprocess->update($request->all());
         if($bp){
-            $request->session()->flash('success', 'Business process Updated successfully');
+            $request->session()->flash('success', 'Business process updated successfully');
 
         }else{
             $request->session()->flash('error', 'Unable to update business process');
@@ -149,7 +154,7 @@ class BprocessController extends Controller
         $bp = $bprocess->delete();
 
         if($bp){
-            session()->flash('success', 'Business process Deleted successfully');
+            session()->flash('success', 'Business process deleted successfully');
 
         }else{
             session()->flash('error', 'Unable to delete business process');

@@ -28,7 +28,7 @@
             <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
                 <h1 class="lead"><span class="badge badge-primary">Status: </span>
                     @if($category->status==0)
-                    <span class="text-danger">In Active</span>
+                    <span class="text-danger">Inactive</span>
                     @elseif($category->status==1)
                     <span class="text-success">Active</span>
                     @endif</h1>
@@ -50,15 +50,17 @@
 
             <div class="border-bottom mx-3 my-3 px-3 py-3 bg-light shadow-sm rounded-top">
                 <h1 class="lead"><span class="badge badge-primary">Created At: </span> {{$category->created_at}}</h1>
-            </div>
-
-            
-
-            
-
-            
-               
+            </div>     
          </div>
+
+         <div class="card-footer text-muted d-flex justify-content-center">
+            <form action="{{route('category.destroy',$category->id)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+            <a href="{{route('category.edit',$category->id)}}" class="btn btn-warning btn-sm mx-2" ><i class="fas fa-pen"></i></a>
+            <button class="btn btn-outline-danger btn-sm mx-2" onclick="return confirm('Do you really want to delete this category?')"><i class="fas fa-trash"></i></button>
+        </form>
+        </div>
        </div>
     </div>
  </div>

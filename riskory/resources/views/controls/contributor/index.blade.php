@@ -45,7 +45,7 @@
             <td>{{$con->joined_at}}</td>
             <td>
             <a href="{{route('contributor.view',$con->id)}}" class="btn btn-outline-info btn-sm" title="View"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash"></i></a>
+                <button href="#" class="btn btn-outline-danger btn-sm" title="Delete" disabled><i class="fas fa-trash"></i></button>
                 {{-- <a href="#" class="btn btn-outline-warning btn-sm" title="Update"><i class="fas fa-pen"></i></a> --}}
             </td>
             </tr>

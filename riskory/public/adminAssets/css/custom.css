@@ -1,0 +1,11 @@
+.image-contain-150{
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.image-contain-avatar{
+    object-fit: contain;
+}

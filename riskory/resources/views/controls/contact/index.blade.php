@@ -4,7 +4,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{URL::route('admin')}}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Contact submissions management</li>
+    <li class="breadcrumb-item active">Contact submissions</li>
     </ol>
   </nav>
 @endsection
@@ -13,7 +13,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Datatable of all submissions.</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Data table of all submissions.</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -34,7 +34,14 @@
             <td>{{$loop->iteration}}</td>
             <td>{{$con->name}}</td>
             <td><a href="#" class="badge badge-info">{{$con->email}}</a></td>
-            <td>{{$con->message}}</td>           
+            <td>
+              <a class="btn btn-outline-primary btn-sm" data-toggle="collapse" href="#multiCollapseExample{{$loop->iteration}}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Read More ..</a>
+            <div class="collapse multi-collapse my-3" id="multiCollapseExample{{$loop->iteration}}">
+                <div class="card card-body">
+                  {{$con->message}}
+                </div>
+              </div>
+              </td>           
             <td class="text-center">
             <form action="{{route('contact.destroy',$con->id)}}" method="POST">
                 @csrf

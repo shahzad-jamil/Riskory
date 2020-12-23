@@ -8,14 +8,18 @@
     </ol>
   </nav>
 @endsection
+@section('summernote')
+<link href="{{asset('adminAssets/summernote/summernote.min.css')}}" rel="stylesheet">
+<script src="{{asset('adminAssets/summernote/summernote.min.js')}}"></script>
+@endsection
 
 @section('content')
 
 <div class="row d-flex justify-content-center mb-4">
-    <div class="col-md-8 col-sm-12 col-lg-6">
+    <div class="col-md-12 col-sm-12 col-lg-10">
      <div class="card shadow border-left-warning">
          <div class="card-header text-center">
-         <span class="text-center">Update Content <i class="fas fa-industry text-warning"></i></span>
+         <span class="text-center">Update Content</span>
          </div>
          <div class="card-body">
             @if ($errors->any())
@@ -32,13 +36,13 @@
             @csrf
             @method('PUT') 
                 <div class="form-group">
-                    <label for="heading">Heading</label>
+                    <label for="heading"><strong>Heading</strong></label>
                 <input type="text" class="form-control" placeholder="Heading" name="heading" required value="{{$content->heading}}">
                 </div>
                     
                 <div class="form-group">
-                    <label for="content">Content </label>
-                    <textarea name="content" id="content" class="form-control" cols="30" rows="5" required>{{$content->content}}</textarea>
+                    <label for="content"><strong>Content</strong> </label>
+                    <textarea name="content" id="summernote" class="form-control" cols="30" rows="5" required>{!!$content->content!!}</textarea>
                   
                 </div>
                 
@@ -54,4 +58,23 @@
     </div>
  </div>
 
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+    $('#summernote').summernote({
+        height:200,
+  //       toolbar: [
+  //       ['style', ['bold', 'italic', 'underline', 'clear']],
+  //       ['font', ['strikethrough', 'superscript', 'subscript']],
+  //       ['fontsize', ['fontsize']],
+  //       ['color', ['color']],
+  //       ['para', ['ul', 'ol', 'paragraph']],
+  //       ['height', ['height']],
+  //       ['insert', ['link', 'picture', 'video']],
+  // ]
+    });
+  });
+</script>
+    
 @endsection

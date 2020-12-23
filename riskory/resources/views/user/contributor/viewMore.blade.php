@@ -10,8 +10,26 @@
             </div>
             <div class="row pl-3 pl-md-5">
                 @foreach($data as $dat)
-                <div class="col-12 col-md-6 col-lg-4">
-                <p class="p-style bg-lgray box-shadow py-2 px-4 p-tab"><i class="fas fa-tag fa-rotate-90"></i> &nbsp;&nbsp;{{$dat->name}}<button class="btn-follow">Follow</button></p>
+                <div class="col-12 col-md-6 col-lg-4 px-4 pb-3 d-flex">
+                    <div class="row align-items-center bg-lgray box-shadow py-2">
+                        <div class="col-2">
+                            <i class="fas fa-tag fa-rotate-90"></i>
+                        </div>
+                        <div class="col-7 pl-0">
+                            <p class="p-style mb-0">{{$dat->name}} ({{$dat->followers->count()}})</p>
+                        </div>
+                        <div class="col-3">
+                            @if (!($dat->followedBy(auth()->user())))
+                                <button class="btn-follow" onclick="parent.location='{{route('control.follow',$dat->id)}}'">Follow</button>
+                            @else
+                        <form action="{{route('control.unfollow',$dat->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-follow bg-dgray" type="submit">Unfollow</button>
+                        </form> 
+                            @endif
+                        </div>
+                    </div>
                 </div>
                 @endforeach
             </div>

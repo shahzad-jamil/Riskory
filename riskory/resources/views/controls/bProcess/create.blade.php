@@ -5,7 +5,7 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{URL::route('admin')}}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{route('bprocess.index')}}">Business Processes</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Add new</li>
+      <li class="breadcrumb-item active" aria-current="page">Add</li>
     </ol>
   </nav>
 @endsection
@@ -14,7 +14,7 @@
     <div class="col-md-8 col-sm-12 col-lg-6">
      <div class="card shadow border-left-success">
          <div class="card-header text-center">
-         <span class="text-center">Add new business process <i class="fas fa-sync-alt text-success"></i></span>
+         <span class="text-center">Add business process <i class="fas fa-sync-alt text-success"></i></span>
          </div>
          <div class="card-body">
             @if ($errors->any())
@@ -54,14 +54,14 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="0">In Active</option>
+                        <option value="0">Inactive</option>
                         <option value="1" selected>Active</option>
                     </select>
                 </div>
 
 
                
-                <button type="submit" class="float-right btn btn-outline-success shadow-sm">Add New <i class="fas fa-plus"></i></button>
+                <button type="submit" class="float-right btn btn-outline-success shadow-sm">Add <i class="fas fa-plus"></i></button>
               </form>
                
          </div>

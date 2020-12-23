@@ -13,7 +13,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Datatable of all business processes. <a class="btn btn-outline-success" href="{{route('bprocess.create')}}">Add new business process <i class="fas fa-plus"></i></a></h6>
+    <h6 class="m-0 font-weight-bold text-primary">Data table of all business processes. <a class="btn btn-outline-success" href="{{route('bprocess.create')}}">Add business process <i class="fas fa-plus"></i></a></h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -21,7 +21,7 @@
           <thead>
             <tr>
               <th>Sr #</th>
-              <th>Name of B Process</th>
+              <th>Name Of B Process</th>
               <th>Parent</th>
               <th>Status</th>
               <th class="text-center">Actions</th>
@@ -42,7 +42,7 @@
             @if($bp->status==1)
             <td><span class="badge badge-pill badge-success">Active</span></td>
             @elseif($bp->status==0)
-            <td><span class="badge badge-pill badge-danger">In Active</span></td>
+            <td><span class="badge badge-pill badge-danger">Inactive</span></td>
             @endif
               <td class="text-center">
             <form action="{{route('bprocess.destroy',$bp->id)}}" method="POST">

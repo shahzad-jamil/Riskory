@@ -4,7 +4,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{URL::route('admin')}}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{route('bprocess.index')}}">Business processes</a></li>
+    <li class="breadcrumb-item"><a href="{{route('bprocess.index')}}">Business Processes</a></li>
       <li class="breadcrumb-item active" aria-current="page">Edit</li>
     </ol>
   </nav>
@@ -14,7 +14,7 @@
     <div class="col-md-8 col-sm-12 col-lg-6">
      <div class="card shadow border-left-warning">
          <div class="card-header text-center">
-         <span class="text-center">Edit Business process <i class="fas fa-sync-alt text-warning"></i></span>
+         <span class="text-center">Edit business process <i class="fas fa-sync-alt text-warning"></i></span>
          </div>
          <div class="card-body">
             @if ($errors->any())
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="0" @if($bprocess->status==0) selected @endif>In Active</option>
+                        <option value="0" @if($bprocess->status==0) selected @endif>Inactive</option>
                         <option value="1" @if($bprocess->status==1) selected @endif>Active</option>
                     </select>
                 </div>

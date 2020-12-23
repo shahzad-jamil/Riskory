@@ -34,4 +34,8 @@ public function parent()
     return $this->belongsTo('App\Models\Industry','parent_id');
 }
 
+// public function rc(){
+//    return $this->morphedByMany(Rcindustry::class,'rcindustry');
+// }
+
 }

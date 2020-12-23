@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Content;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +20,9 @@ class VisitorController extends Controller
 
     public function index(){
         
-
+        if(Auth::user()){
+            return redirect()->route('user');
+        }
         return view('user.homepage');
     }
 
@@ -34,6 +37,9 @@ class VisitorController extends Controller
     }
 
     public function signup(){
+        if(Auth::user()){
+            return redirect()->route('user');
+        }
 
         return view('user.register');
     }
@@ -59,7 +65,8 @@ class VisitorController extends Controller
         }else{
             $request->session()->flash('error', 'Unable to complete your request. Try Again later');
         }
-
+        event(new Registered($user));
+        
         return redirect()->route('userLogin');
         
     }
@@ -68,6 +75,10 @@ class VisitorController extends Controller
         if(Auth::user()){
             return redirect()->route('user');
         }else{
+            if(!session()->has('url.intended'))
+            {
+                session(['url.intended' => url()->previous()]);
+            }
             return view('user.login');
         }
         

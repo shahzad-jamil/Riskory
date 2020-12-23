@@ -10,7 +10,7 @@
             <div class="col-12 col-sm-6 col-md-6 text-center pb-2 pb-sm-3">
                 <p class="p-style font-18 font-b color-n">Signup With</p>
                 <div class="signup-icon">
-                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="{{route('twitterLogin')}}"><i class="fab fa-twitter"></i></a>
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="{{route('googleLogin')}}"><i class="fab fa-google"></i></a>
                 </div>
@@ -63,8 +63,8 @@
                         @enderror
                     </div>
 
-                    <p class="p-style mb-0">BY Sign Up You Agree to our</p>
-                    <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> And <a class="color-g text-underl" href="#">Privacy Policy</a></p>
+                    <p class="p-style mb-0">By SIGN UP have to agree to our</p>
+                    <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> & <a class="color-g text-underl" href="#">Privacy Policy</a></p>
                     <input type="submit" id="submit" name="signup" value="Sign Up" class="btn-submit">
                 <p class="p-style font-20 mt-3">Already Have Account ! <a href="{{route('userLogin')}}" class="color-b">LOGIN HERE</a></p>
                 </form>

@@ -14,7 +14,7 @@
     <div class="col-md-8 col-sm-12 col-lg-6">
      <div class="card shadow border-left-warning">
          <div class="card-header text-center">
-         <span class="text-center">Edit Business framework <i class="fas fa-chart-area text-warning"></i></span>
+         <span class="text-center">Edit Business Framework <i class="fas fa-chart-area text-warning"></i></span>
          </div>
          <div class="card-body">
             @if ($errors->any())
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="0" @if($bframework->status==0) selected @endif>In Active</option>
+                        <option value="0" @if($bframework->status==0) selected @endif>Inactive</option>
                         <option value="1" @if($bframework->status==1) selected @endif>Active</option>
                     </select>
                 </div>

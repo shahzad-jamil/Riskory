@@ -26,7 +26,13 @@
             <a class="nav-link nav-link-style" href="{{route('contactUs')}}">Contact Us</a>
           </li>
         </ul>
+      @if(Auth::user())
+
+      <button class="btn-join-now m-2" onclick="parent.location='{{route('user')}}'" >Dashboard</button>
+      @else
       <button class="btn-join-now" onclick="parent.location='{{route('userRegister')}}'" type="submit">Join Now</button>
+      <button class="btn-join-now m-2" onclick="parent.location='{{route('userLogin')}}'" >Login</button>
+      @endif
       </div>
     </nav>
 </header>

@@ -1,5 +1,5 @@
 /* --- Custom Styling Added Here --- */
-@font-face {
+/*@font-face {
     font-family: 'Ebrima';
     src: url('../fonts/Ebrima-Bold.woff2') format('woff2'),
         url('../fonts/Ebrima-Bold.woff') format('woff');
@@ -12,6 +12,24 @@
     font-family: 'Ebrima';
     src: url('../fonts/Ebrima.woff2') format('woff2'),
         url('../fonts/Ebrima.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}*/
+
+@font-face {
+    font-family: 'Ebrima';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
+        url('../fonts/Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ebrima';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -81,13 +99,10 @@ src: local('Georgia Bold Italic'), url('../fonts/georgiaz.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
-
-.p-tab{
-    width: 100%;
-    display: inline-block;
-    
+* {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-rendering: optimizeLegibility;
 }
-
 p>a:hover {
     color: #E90000 !important;
 }
@@ -184,6 +199,9 @@ li>a:hover {
 .border-1 {
     border: solid 1px #E90000;
 }
+.border-2 {
+    border: solid 2px #E90000;
+}
 .border-gray-1 {
     border: solid 1px #707070;
 }
@@ -198,6 +216,9 @@ li>a:hover {
 }
 .br-12 {
     border-radius: 12px;
+}
+.br-10 {
+    border-radius: 10px;
 }
 .br-tl-20 {
     border-top-left-radius: 20px;
@@ -233,13 +254,13 @@ li>a:hover {
     color: #E90000 !important;
 }
 .btn-join-now {
-    padding: 16px 32px;
+    padding: 8px 18px;
     color: #fff;
     background-color: #E90000;
     text-transform: uppercase;
     font-family: Ebrima;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     border: none;
 }
 .btn-join-now:hover {
@@ -301,19 +322,19 @@ li>a:hover {
     color: #fff;
     font-family: Ebrima;
     font-weight: normal;
-    font-size: 22px;
+    font-size: 18px;
     border: none;
-    padding: 15px 20px;
+    padding: 8px 14px;
 }
 .footer-btn:hover {
     background: #000;
 }
 .footer-btn i {
-    font-size: 20px;
+    font-size: 16px;
     border: solid 2px #fff;
     border-radius: 50%;
-    padding: 10px 11px;
-    margin-left: 15px;
+    padding: 6px 7px;
+    margin-left: 4px;
 }
 .signup-icon a {
     background: #BAE8E8;
@@ -417,7 +438,7 @@ li>a:hover {
 }
 .box-shadow-sidebar {
     box-shadow: #00000029 -2px 2px 3px;
-    padding-left: 2rem !important;
+    padding-left: 1rem !important;
 }
 .input-group.search-bar {
     background-color: #EFEFEF;
@@ -461,6 +482,19 @@ li>a:hover {
     height: 49px;
     vertical-align: top;
     display: inline-block;
+}
+.topbar-icon a.dropdown-item {
+    background: transparent;
+    display: block;
+    font-size: 16px;
+    width: auto;
+    margin: 0;
+    padding: 8px 20px;
+}
+.topbar-icon .dropdown-menu {
+    top: 35px !important;
+    right: -60px !important;
+    left: unset !important;
 }
 .topbar-img {
     padding: 0 !important;
@@ -548,8 +582,8 @@ li.select2-selection__choice {
     outline: none !important; 
 }
 .btn-next:hover {
-    background: #000000;
-    color: #FFFFFF
+    background: #000000 !important;
+    color: #FFFFFF !important;
 }
 .btn-create {
     border: none;
@@ -572,7 +606,7 @@ li.select2-selection__choice {
 }
 .modal-header {
     box-shadow: #00000029 0px 2px 3px;
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 .modal-header .btn-create {
     border: none;
@@ -671,6 +705,33 @@ li.select2-selection__choice {
 .modal-icon a:hover {
     background: #000;
     color: #fff;
+}
+
+.modal-icon button {
+    background: #BAE8E8;
+    color: #E90000;
+    font-size: 20px;
+    padding: 6px 12px;
+    margin: 0px 8px;
+    width: 44px;
+    /* height: 45px; */
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 0px transparent;
+
+    border: 0px solid transparent;
+
+    text-shadow: 0px 0px 0px transparent;
+}
+.modal-icon button:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 0px 0px 0px transparent;
+
+    border: 0px solid transparent;
+
+    text-shadow: 0px 0px 0px transparent;
 }
 .breadcrumb {
     border-radius: 0 !important;
@@ -914,6 +975,9 @@ button.select-image {
     padding: 0;
     overflow: hidden;
 }
+/* .dropdown-menu.show {
+    transform: translate3d(-110px, 22px, 0px) !important;
+} */
 
 
 
@@ -975,6 +1039,86 @@ button.select-image {
     .profile-img img {
         width: 100px;
     }
+    .nav-link-style {
+        font-size: 16px;
+    }
+    .btn-join-now {
+        padding: 8px 18px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .header-main {
+        margin-left: 0 !important;
+        padding-left: 10px !important;
+    }
+    .btn-cancel {
+        padding: 8px;
+        width: 100%;
+    }
+    .btn-next {
+        padding: 8px;
+        width: 100%;
+    }
+    .btn-create {
+        padding: 8px;
+        width: 100%;
+    }
+    .modal-header {
+        padding: 20px 0px 20px 10px;
+    }
+    .modal-header .close {
+        margin-top: 0 !important;
+        padding: 10px;
+        margin-right: 5px !important;
+    }
+    .modal-header .btn-create {
+        margin-right: 5px;
+        padding: 8px 3px;
+    }
+    .modal-header .btn-list {
+        margin-right: 10px;
+    }
+    .modal-icon a {
+        margin: 0 5px !important;
+    }
+    #firstfieldset div>div>div>input {
+	    padding: 5px !important;
+	}
+	#firstfieldset div>input {
+	    padding: 30px 12px !important;
+	}
+	span.select2-selection.select2-selection--multiple {
+		padding: 1rem;
+	}
+    #profileImage
+    {
+        cursor: pointer;
+        max-width: 90px !important;
+    }
+    button.btn-list {
+        padding: 8px 20px !important;
+        font-size: 13px;
+    }
+    .nav-item.nav-link.flex-fill {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    .nav-item.nav-link.active.flex-fill {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    .mb-4 input.form-control {
+        padding: 30px 12px !important;
+    }
+    .comment-section button.btn {
+        padding: 5px 20px !important;
+    }
+    .comment-section {
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+
+
 }
 @media (min-width: 576px) {
 
@@ -1004,10 +1148,15 @@ button.select-image {
     display: none;
 }
 
-#profileImage
-{
+#profileImage {
     cursor: pointer;
+    width: 150px;
     max-width: 150px !important;
+    height: 150px;
+    max-height: 150px;
+    image-rendering: auto;
+    object-fit: contain;
+    background: white;
 }
 
 #profile-container {
@@ -1027,3 +1176,114 @@ button.select-image {
     height: 150px;
     max-width: 150px !important;
 }
+/*Rating Input Style*/
+.rating {
+      float:left;
+    }
+
+    /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+      follow these rules. Every browser that supports :checked also supports :not(), so
+      it doesn’t make the test unnecessarily selective */
+    .rating:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+        clip:rect(0,0,0,0);
+    }
+
+    .rating:not(:checked) > label {
+        float: right;
+        width: 1.14em;
+        /* padding: 0.1em; */
+        margin: 0 0.1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 110%;
+        line-height: 1.2;
+    }
+
+    .rating:not(:checked) > label:before {
+        content: '\f005';
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free"
+    }
+
+    .rating > input:checked ~ label {
+        color: #FFB303;
+        
+    }
+
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+        color: #FFB303;
+        
+    }
+
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+        color: #FFB303;
+        
+    }
+
+    .rating > label:active {
+        position:relative;
+        top:2px;
+        left:2px;
+    }
+
+
+
+    /* New Custom css added */
+    /*
+    1- Dropdown menu.show class commented on line # 972
+    2- .modal-header commented padding on line # 603
+
+    */
+
+    .topbar-icon a img{
+        object-fit: contain;
+    }
+
+    .user-cover{
+        height: 30vh;
+        max-height: 30vh;
+        object-fit: cover;
+    }
+
+    .profile-cover{
+        border-radius: 10px;
+    }
+
+    .avatar-img{
+        object-fit: contain;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .avatar-img-lg{
+        object-fit: contain;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .counter-badge{
+        position: absolute;
+    margin: -12px -8px;
+    border-radius: 50%;
+    padding: 0 6px 3px 6px;
+    }
+
+    @media (max-width: 575.98px) {
+        .user-cover{
+            object-fit: contain;
+            max-height: 20vh;
+        }
+
+    }

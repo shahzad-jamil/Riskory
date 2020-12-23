@@ -13,7 +13,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Datatable of all categories. <a class="btn btn-outline-success" href="{{route('category.create')}}">Add new category. <i class="fas fa-plus"></i></a></h6>
+    <h6 class="m-0 font-weight-bold text-primary">Data table of all categories. <a class="btn btn-outline-success" href="{{route('category.create')}}">Add category. <i class="fas fa-plus"></i></a></h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -42,7 +42,7 @@
             @if($cat->status==1)
             <td><span class="badge badge-pill badge-success">Active</span></td>
             @elseif($cat->status==0)
-            <td><span class="badge badge-pill badge-danger">In Active</span></td>
+            <td><span class="badge badge-pill badge-danger">Inactive</span></td>
             @endif
               <td class="text-center">
             <form action="{{route('category.destroy',$cat->id)}}" method="POST">
@@ -52,7 +52,7 @@
                 @csrf
                 @method('DELETE')
                 
-              <button class="btn btn-outline-danger btn-sm" title="delete" type="submit" onclick="return confirm('Do you really want to delete this business process?')"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-outline-danger btn-sm" title="delete" type="submit" onclick="return confirm('Do you really want to delete this category?')"><i class="fas fa-trash"></i></button>
             </form>
             </td>
             </tr>

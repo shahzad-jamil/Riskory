@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -91,7 +97,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
-        $categories = Category::all()->where('status',1);
+        $categories = Category::all()->where('status',1)->whereNotIn('id',$category->id);
         return view('controls.category.update',compact('categories','category'));
     }
 
@@ -121,7 +127,7 @@ class CategoryController extends Controller
         
         $cat = $category->update($request->all());
         if($cat){
-            $request->session()->flash('success', 'Category Updated successfully');
+            $request->session()->flash('success', 'Category updated successfully');
 
         }else{
             $request->session()->flash('error', 'Unable to update category');
@@ -137,11 +143,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
         $cat = $category->delete();
 
         if($cat){
-            session()->flash('success', 'Business process Deleted successfully');
+            session()->flash('success', 'Category deleted successfully');
 
         }else{
             session()->flash('error', 'Unable to delete business process');

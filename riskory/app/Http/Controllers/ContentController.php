@@ -13,6 +13,13 @@ class ContentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
+    
     public function index()
     {
         $contents = Content::all();
@@ -79,11 +86,36 @@ class ContentController extends Controller
             'content' => 'required',
         ]);
 
+
+        
+        $detail=$request->input('content');
+        $dom = new \DomDocument();
+        @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+        $images = $dom->getElementsByTagName('img');
+        
+        foreach($images as $k => $img){
+            if($img->hasAttribute('data-filename') && !($img->hasAttribute('upload'))):
+                $data = $img->getAttribute('src');
+                list($type, $data) = explode(';', $data);
+                list(, $data)      = explode(',', $data);
+                $data = base64_decode($data);
+                $image_name= "pagecontent/images/" . time().$k.'.png';
+                $path = public_path().'/'. $image_name;
+                file_put_contents($path, $data);
+                $img->removeAttribute('src');
+                $img->setAttribute('upload','1');
+                $img->setAttribute('src', asset($image_name));
+            endif;
+       }
+
+        $detail = $dom->saveHTML();
+        $request->merge(['content' => $detail]);
+
        
 
         $bp = $content->update($request->all());
         if($bp){
-            $request->session()->flash('success', 'Content Updated successfully');
+            $request->session()->flash('success', 'Content updated successfully');
 
         }else{
             $request->session()->flash('error', 'Unable to update Content');
@@ -115,7 +147,7 @@ class ContentController extends Controller
         $con = $contact->find($id)->delete();
 
         if($con){
-            session()->flash('success', 'Submission Deleted successfully');
+            session()->flash('success', 'Submission deleted successfully');
 
         }else{
             session()->flash('error', 'Unable to delete submission');

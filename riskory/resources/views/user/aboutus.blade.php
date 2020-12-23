@@ -5,7 +5,7 @@
     <div class="container">
         <div class="text-center">
         <h1 class="font-eb color-r">{{$con->heading}}</h1>
-        <p class="p-style">{{$con->content}}</p>
+        <p class="p-style">{!!$con->content!!}</p>
         </div>
     </div>
 </main>

@@ -34,10 +34,8 @@
                         @endif
                     </div>
                     <p class="p-style font-20"><a href="forget-password.html" class="color-b">Forget Your Password!</a></p>
-                    <p class="p-style mb-0">BY Sign Up You Agree to our</p>
-                    <p class="p-style mt-0"><a class="color-g text-underl" href="#">Service Terms</a> And <a class="color-g text-underl" href="#">Privacy Policy</a></p>
                     <input type="submit" id="submit" name="signup" value="Login" class="btn-submit">
-                    <p class="p-style font-20 mt-3">Don't Have Account ! <a href="register.html" class="color-b">SIGN UP</a></p>
+                <p class="p-style font-20 mt-3">Don't Have Account ! <a href="{{route('userRegister')}}" class="color-b">SIGN UP</a></p>
                 </form>
             </div>
         </div>

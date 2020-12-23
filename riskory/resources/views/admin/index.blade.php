@@ -19,7 +19,7 @@
         </div>
         <div class="row">
           <div class="col">
-          <div class="text-center"><a href="{{route('industry.index')}}" class="badge badge-primary">View All Industries</a></div>
+          <div class="text-center"><a href="{{route('control.index',['type'=>'industry'])}}" class="badge badge-primary">View all industries</a></div>
           </div>
         </div>
 
@@ -38,12 +38,12 @@
           
           </div>
           <div class="col-auto">
-            <i class="fas fa-sync-alt fa-2x text-gray-300 fa-spin"></i>
+            <i class="fas fa-sync-alt fa-2x text-gray-300"></i>
           </div>
         </div>
         <div class="row">
           <div class="col">
-          <div class="text-center"><a href="{{route('bprocess.index')}}" class="badge badge-success">View All Business processes</a></div>
+          <div class="text-center"><a href="{{route('control.index',['type'=>'bprocess'])}}" class="badge badge-success">View all business processes</a></div>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Business Frameworks</div>
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Business frameworks</div>
             <div class="row no-gutters align-items-center">
               <div class="col-auto">
               <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$bfCount}}</div>
@@ -74,7 +74,7 @@
         </div>
         <div class="row">
           <div class="col">
-          <div class="text-center"><a href="{{route('bframework.index')}}" class="badge badge-info">View All Business frameworks</a></div>
+          <div class="text-center"><a href="{{route('control.index',['type'=>'bframework'])}}" class="badge badge-info">View all business frameworks</a></div>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@
         </div>
         <div class="row">
           <div class="col">
-          <div class="text-center"><a href="{{route('category.index')}}" class="badge badge-warning">View All Categories</a></div>
+          <div class="text-center"><a href="{{route('control.index',['type'=>'category'])}}" class="badge badge-warning">View all categories</a></div>
           </div>
         </div>
       </div>

@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class IndustryController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -95,7 +102,7 @@ class IndustryController extends Controller
     public function edit(Industry $industry)
     {
         //
-        $industries = Industry::all()->where('status',1);
+        $industries = Industry::all()->where('status',1)->whereNotIn('id',$industry->id);
         return view('controls.industry.update',compact('industries','industry'));
 
     }
@@ -126,10 +133,10 @@ class IndustryController extends Controller
         
         $ind = $industry->update($request->all());
         if($ind){
-            $request->session()->flash('success', 'Industry Updated successfully');
+            $request->session()->flash('success', 'Industry updated successfully');
 
         }else{
-            $request->session()->flash('error', 'Unable to update industry');
+            $request->session()->flash('error', 'Unable to update industry !');
         }
         return redirect()->route('industry.index');
 
@@ -144,13 +151,10 @@ class IndustryController extends Controller
     public function destroy(Industry $industry)
     {
         //
-
-        $ind = $industry->delete();
-
-        if($ind){
-            session()->flash('success', 'Industry Deleted successfully');
-
-        }else{
+        try{
+            $ind = $industry->delete();
+            session()->flash('success', 'Industry deleted successfully');
+        }catch(Exception $ex){
             session()->flash('error', 'Unable to delete industry');
         }
         return redirect()->route('industry.index');

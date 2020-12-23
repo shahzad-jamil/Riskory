@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use LaratrustUserTrait;
     use HasFactory, Notifiable;
@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'gender',
         'avatar',
+        'cover',
 
     ];
 
@@ -42,18 +43,67 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
     public function country(){
-        return $this->belongsTo('App\Models\Country');
+        return $this->belongsTo(Country::class,'country_id');
     }
 
     public function industries()
     {
         return $this->hasMany('App\Models\Industry');
     }
+
+    public function followers(){
+        return $this->hasMany(Follow::class);
+    }
+
+    public function tagFollowers(){
+        return $this->hasMany(FollowTags::class);
+    }
+
+    public function bookmarks(){
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function benchmarks(){
+        return $this->hasMany(Benchmark::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
+    public function dislikes(){
+        return $this->hasMany(Dislike::class);
+    }
+
+    public function rcs(){
+        return $this->hasMany(RiskControl::class,'user_id');
+    }
+
+    public function userFollowers(){
+        return $this->hasMany(Followuser::class,'user_id');
+    }
+
+    public function userFollowing(){
+        return $this->hasMany(Followuser::class,'follower_id');
+    }
+
+    public function followedBy(User $user){
+        return $this->userFollowers->contains('follower_id',$user->id);
+    }
+
+    public function rlists(){
+        return $this->hasMany(Rlist::class,'user_id');
+    }
+
 
     
 }
